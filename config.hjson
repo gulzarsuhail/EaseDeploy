@@ -1,0 +1,58 @@
+{
+
+    /*
+        Set the name of the project.
+    */
+    "projectName": "EaseDeploy",
+
+    /*
+        Set the path of ML file exported using joblib.
+    */
+    "joblibFilePath": "model.pkl",
+
+    /*
+        Define all the input values your model needs to make predictions.
+        Input values can be categorical or continious.
+        EXPECTED FORMAT FOR CATEGORICAL INPUTS:
+        {
+            "type": "categorical",
+            "description": "Blood sugar level",
+            "possibleValues": [
+                { "value": 1, "altValue": "Low" },
+                { "value": 2, "altValue": "Normal" },
+                { "value": 0, "altValue": "High"}
+            ]
+        }
+        EXPECTED FORMAT FOR CONTINIOUS INPUTS:
+        {
+            "type": "continious",
+            "description": "Weight of the person"
+        }
+        NOTE: The values will be put in the model in the same
+        order in which the values are present in input array.
+    */ 
+    "input": [
+        {
+            "type": "continious",
+            "description": "Age of the person"
+        },
+        {
+            "type": "continious",
+            "description": "Height of the person"
+        },
+        {
+            "type": "categorical",
+            "description": "Sugar level",
+            "possibleValues": [
+                { "value": 0, "altValue": "Low" },
+                { "value": 1, "altValue": "Normal" },
+                { "value": 2, "altValue": "High"}
+            ]
+        }
+    ],
+
+    /*
+        Set the output message.
+    */
+    "outputMessage": "The predicted value is"
+}
