@@ -13,11 +13,11 @@ model = joblib.load(config['joblibFilePath'])
 
 @app.route('/', methods=['GET'])
 def sendHomepage():
-    return render_template('index.html', config=config)
+    return render_template('main.html', config=config)
 
 @app.route('/', methods=['POST'])
 def predict():
-    model = joblib.load(config['joblibFilePath'])
+    return render_template('prediction.html', prediction=12345, predictText=config['outputMessage'])
 
 if __name__ == '__main__':
     app.run()
