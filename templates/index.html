@@ -4,17 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config['projectName'] }}</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 </head>
-<body>
-    <form>
-    {% for input in config['input'] %}
-        {% if input['type'] == 'continious' %}
-        continious
-        {% else %}
-        categoical
-        {% endif %}
-
-    {% endfor %}
+<body class="ui container">
+    <h1>{{ config['projectName'] }}</h1>
+    <p>{{ config['projectDesc'] }}</p>
+    <form class="ui form">
+    <script>
+        let jsValidation = {};
+    </script>
+        {% for input in config['input'] %}
+            {% if input['type'] == 'continious' %}
+                <div class="field">
+                    <label>{{ input['description'] }}</label>
+                    <input type="text" name="{{ loop.index }}" placeholder="Enter">
+                </div>
+                <script>
+                    // for validation purposes
+                    jsValidation['{{ loop.index }}'] = {
+                        identifier: {{ loop.index }},
+                        rules: [
+                            { type   : 'empty', prompt : "Please enter a value for {{ input['description'] }}" },
+                            { type   : 'number', prompt : "{{ input['description'] }} contains a non numeric value" }
+                        ]
+                    }
+                </script>
+            {% elif input['type'] == 'categorical' %}
+            <div class="field">
+                <label>{{ input['description'] }}</label>
+                <div class="ui selection dropdown">
+                    <input type="hidden" name="{{ loop.index }}" required>
+                    <div class="default text">Select</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {% for option in input['possibleValues'] %}
+                            <div class="item" data-value="{{ option['value'] }}">{{ option['altValue'] }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <script>
+                    // For validation purposes
+                    jsValidation['{{ loop.index }}'] = {
+                        identifier: {{ loop.index }},
+                        rules: [
+                            { type   : 'empty', prompt : "Please select a {{ input['description'] }} value" }
+                        ]
+                    }
+                </script>
+            </div>
+            {% else %}
+                <script>
+                    console.log("Invalid input type {{ input['description'] }} in config.")
+                </script>
+            {% endif %}
+        {% endfor %}
+        <div class="ui error message"></div>
+        <button type="submit" class="ui blue button">Submit</button>
     </form>
+    <script src="/static/script.js"></script>
 </body>
 </html>

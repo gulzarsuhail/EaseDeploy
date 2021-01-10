@@ -1,9 +1,13 @@
 {
-
     /*
         Set the name of the project.
     */
     "projectName": "EaseDeploy",
+
+    /*
+        Define what your project does.
+    */
+    "projectDesc": "This is an EasyDeploy example.",
 
     /*
         Set the path of ML file exported using joblib.
@@ -34,15 +38,15 @@
     "input": [
         {
             "type": "continious",
-            "description": "Age of the person"
+            "description": "Age"
         },
         {
             "type": "continious",
-            "description": "Height of the person"
+            "description": "Height"
         },
         {
             "type": "categorical",
-            "description": "Sugar level",
+            "description": "Sugar",
             "possibleValues": [
                 { "value": 0, "altValue": "Low" },
                 { "value": 1, "altValue": "Normal" },
