@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config['projectName'] }}</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-</head>
-<body class="ui container">
+{% include "header.html" %}
+
+<div class="ui container" style="max-width: 660px !important; padding-top: 30px;">
     <h1>{{ config['projectName'] }}</h1>
     <p>{{ config['projectDesc'] }}</p>
     <form class="ui form" action="/" method="POST">
@@ -49,7 +41,7 @@
                     jsValidation['{{ loop.index }}'] = {
                         identifier: {{ loop.index }},
                         rules: [
-                            { type   : 'empty', prompt : "Please select a {{ input['description'] }} value" }
+                            { type   : 'empty', prompt : "Please select a value for {{ input['description'] }} " }
                         ]
                     }
                 </script>
@@ -76,5 +68,6 @@
         </div>
     </div>
     <script src="/static/main.js"></script>
-</body>
-</html>
+</div>
+
+{% include "footer.html" %}

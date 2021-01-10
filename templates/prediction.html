@@ -1,33 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config['projectName'] }}</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-</head>
-<body class="ui container" id="predictBody">
-    <style>
-        #predictBody {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+{% include "header.html" %}
+
+<style>
+    .predict {
+        font-size: 6em;
+    }
+    .centerText {
+        text-align: center;
+    }
+    .boo {
+        opacity: 0;
+        animation: opacity1 1s forwards;
+    }
+    @keyframes opacity1 {
+        0% {
+            opacity: 0;
         }
-        .predict {
-            font-size: 6em;
+        100% {
+            opacity: 1;
         }
-        .centerText {
-            text-align: center;
-        }
-    </style>
-    <div>
-        <h1 class="centerText">{{ predictText }}</h1>
-        <h1 class="predict centerText">{{ prediction }}</h1>
-        <div class="centerText">
-            <a class="positive ui button" href="/">Predict Again</a>
-        </div>
+    }
+</style>
+<div class="boo">
+    <h1 class="centerText">{{ config['outputMessage'] }}</h1>
+    <h1 class="predict centerText">{{ prediction }}</h1>
+    <div class="centerText">
+        <a class="positive ui button" href="/">Predict Again</a>
     </div>
-</body>
-</html>
+</div>
+
+{% include "footer.html" %}

@@ -17,7 +17,7 @@ def sendHomepage():
 
 @app.route('/', methods=['POST'])
 def predict():
-    return render_template('prediction.html', prediction=12345, predictText=config['outputMessage'])
+    return render_template('prediction.html', prediction=12345, config=config)
 
 if __name__ == '__main__':
     app.run()
