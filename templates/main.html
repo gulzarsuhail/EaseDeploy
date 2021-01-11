@@ -55,7 +55,15 @@
         <div class="ui error message"></div>
         <button type="submit" class="ui blue button">Submit</button>
     </form>
-    <script src="/static/main.js"></script>
+    <script>
+        // To enable dropdown function
+        // P.S I hate jquery -_-
+        $('.ui.selection.dropdown').dropdown({});
+
+        // Enable validation
+        // P.S I still hate jquery -_-
+        $('.ui.form').form({ fields: jsValidation });
+    </script>
 </div>
 
 {% include "footer.html" %}
