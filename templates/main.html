@@ -1,9 +1,9 @@
 {% include "header.html" %}
 
-<div class="ui container" style="max-width: 660px !important; padding-top: 30px;">
+<div class="ui container" style="max-width: 660px !important; padding-top: 10px;">
     <h1>{{ config['projectName'] }}</h1>
     <p>{{ config['projectDesc'] }}</p>
-    <form class="ui form" action="/" method="POST">
+    <form class="ui form" action="/predict" method="POST">
     <script>
         let jsValidation = {};
     </script>

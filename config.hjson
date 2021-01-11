@@ -36,23 +36,66 @@
         order in which the values are present in input array.
     */ 
     "input": [
+        // {
+        //     "type": "continious",
+        //     "description": "Age"
+        // },
         {
-            "type": "continious",
-            "description": "Age"
-        },
-        {
-            "type": "continious",
-            "description": "Height"
+            "type": "categorical",
+            "description": "Buying Cost",
+            "possibleValues": [
+                { "value": 3, "altValue": "Very High" },
+                { "value": 0, "altValue": "High" },
+                { "value": 2, "altValue": "Medium"}
+                { "value": 1, "altValue": "Low"}
+            ]
         },
         {
             "type": "categorical",
-            "description": "Sugar",
+            "description": "Maintanence Cost",
             "possibleValues": [
-                { "value": 0, "altValue": "Low" },
-                { "value": 1, "altValue": "Normal" },
-                { "value": 2, "altValue": "High"}
+                { "value": 3, "altValue": "Very High" },
+                { "value": 0, "altValue": "High" },
+                { "value": 2, "altValue": "Medium"}
+                { "value": 1, "altValue": "Low"}
             ]
-        }
+        },
+        {
+            "type": "categorical",
+            "description": "Doors",
+            "possibleValues": [
+                { "value": 2, "altValue": "2" },
+                { "value": 4, "altValue": "4" },
+                { "value": 6, "altValue": "6"}
+            ]
+        },
+        {
+            "type": "categorical",
+            "description": "Number of Seats",
+            "possibleValues": [
+                { "value": 2, "altValue": "2" },
+                { "value": 4, "altValue": "4" },
+                { "value": 6, "altValue": "6"}
+            ]
+        },
+        {
+            "type": "categorical",
+            "description": "Lug Boot Space",
+            "possibleValues": [
+                { "value": 2, "altValue": "Small" },
+                { "value": 1, "altValue": "Medium" },
+                { "value": 0, "altValue": "Big"}
+            ]
+        },
+        {
+            "type": "categorical",
+            "description": "Safety",
+            "possibleValues": [
+                { "value": 1, "altValue": "Low" },
+                { "value": 2, "altValue": "Medium" },
+                { "value": 0, "altValue": "High"}
+            ]
+        },
     ],
 
     /*

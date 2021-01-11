@@ -1,0 +1,37 @@
+{% include "header.html" %}
+
+<style>
+    .centerText {
+        text-align: center;
+    }
+    .boo {
+        opacity: 0;
+        animation: opacity1 1s forwards;
+    }
+    .ui.warning.message{
+        max-width: 600px !important;
+        margin: 0 auto;
+    }
+    @keyframes opacity1 {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+<div class="ui container boo">
+    <div class="ui warning message ">
+        <div class="header">
+          ERROR
+        </div>
+        {{ errorText }}
+    </div>
+    <br>
+    <div class="centerText">
+        <a class="positive ui button" href="/">Try Again</a>
+    </div>
+</div>
+
+{% include "footer.html" %}
